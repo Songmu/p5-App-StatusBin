@@ -51,6 +51,15 @@ my %StatusCode = (
     511 => 'Network Authentication Required',
 );
 
+get '/example' => sub {
+    my $c = shift;
+    my $body = '';
+    for my $status (qw/400 401 403 404 500 503/) {
+        $body .= sprintf '<img src="%s" /><br />', "$status.png";
+    }
+    $c->create_response(200, ['Content-Type' => 'text/html'], [$body]);
+};
+
 get '/{status:[0-9]+}.{ext:[a-z0-9]+}' => sub {
     my ($c, $args) = @_;
 
