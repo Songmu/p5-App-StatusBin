@@ -1,0 +1,6 @@
+name = "App-StatusBin"
+# badges = ["travis"]
+authority="cpan:SONGMU"
+
+module_maker="ModuleBuildTiny"
+
